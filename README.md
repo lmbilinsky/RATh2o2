@@ -2,7 +2,7 @@ This script contains the in vitro computational model of endogenous H2O2 metabol
 existing in an in vitro preparation). It is identical to the script RATh2o2_dma3.m, minus everything having to do with
 arsenic. 
 
-To run this script, all files in this directory must be in the same directory (folder). The script will load the .mat file
+To run this script, all files in this repository must be in the same directory (folder). The script will load the .mat file
 yinitialcondition.mat, which contains the variable yinit. yinit dictates the initial concentrations of all chemical species
 in both hepatocytes and medium, and the initial number of cells (element 65, set here to 20,000). 
 
