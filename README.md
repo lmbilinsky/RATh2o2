@@ -7,8 +7,8 @@ yinitialcondition.mat, which contains the variable yinit. yinit dictates the ini
 in both hepatocytes and medium, and the initial number of cells (element 65, set here to 20,000). 
 
 RATh2o2 describes the situation of 20,000 rat hepatocytes existing per 100 microliters of medium. If you wish to model a 
-different in vitro setup, then the constants cellnum and vmed in RATh2o2.m and element 65 of yinit, stored in 
-yinitialcondition.mat, must be changed. 
+different in vitro setup, then the constants cellnum and/or vmed in RATh2o2.m ,and possibly element 65 of yinit, must be 
+changed. 
 
 Importantly, the initial concentrations of cystine and cysteine in medium (elements 10 and 11 of yinit, respectively) are 
 set to values intended to describe the composition of Dulbecco's Modified Eagle medium. Only the total cysteine content
