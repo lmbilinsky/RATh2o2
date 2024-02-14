@@ -28,8 +28,13 @@ will rise. This is because cellular medium lacks the enzymes necessary to break 
 amino acids, one of which is cysteine. Given how large the volume of medium is compared to the total volume of the 20,000 
 hepatocytes, this effect takes a while to see.
 
-To simulate the effects of a total halt in GSH synthesis, set ``V" in VGCLholorat.m to zero. 
+To simulate the effects of a total halt in GSH synthesis, set ``V" in VGCLholorat.m to zero. This is necessary to simulate Fig. 6 in the
+paper. It is also interesting to *not* do this, and not comment out equation 11 of RATh2o2.m. This will illustrate how hepatocytes 
+sitting in cellular medium eventually experience some oxidative stress, simply due to the declining medium cysteine concentration.
+This indicates that, to avoid this experimental artifact, the volume of medium should be as large as possible, for a given number
+of hepatocytes. To use an analogy, if I am fishing in an aquarium, I will quickly deplete the number of fish; if I am fishing in a lake,
+this effect is trivial.
 
 
  
-Dulbecco's Modified Eagle Medium. It is identical to 
+
