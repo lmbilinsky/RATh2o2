@@ -1,4 +1,4 @@
-function [T gsh gssg h2o2 T_7p5 h2o2dma3_7p5 gshdma3_7p5] =RATh2o2
+function [T gsh gssg h2o2] =RATh2o2
 
 close all
 
@@ -169,14 +169,6 @@ else
 end
 
 
-%These are parameters describing excess H2O2 production when intracellular DMA3 is present
-a=2.2;
-b=0.0005;
-km=0.2;
-n=2.5;
-
-
-
 
 
 dy=zeros(107,1);
@@ -201,7 +193,7 @@ dy(12)=VGPXcyt(y(5),y(32)) - VGRcyt(y(12), NADPH) - vGSSGout(y(12)); % liver cyt
 
 dy(21)= vh2o2prod - diffh2o2*y(21) - VGPXmito(y(3),y(21)); %H2O2 in liver mitochondria. 
 
-dy(32)= (0.15/0.85)*diffh2o2*y(21) - VGPXcyt(y(5), y(32)) + vh2o2other*(1+(a*y(102)/(y(102)+km)+b*y(102)^n)) - Vcat(y(32)); %H2O2 in liver cytosol
+dy(32)= (0.15/0.85)*diffh2o2*y(21) - VGPXcyt(y(5), y(32)) + vh2o2other - Vcat(y(32)); %H2O2 in liver cytosol
 
 
 
