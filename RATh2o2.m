@@ -27,7 +27,7 @@ gsh_deg=0;
 
 
 load yinitialcondition
-[T,Y] = ode15s(@rath2o2, [0 16], yinit, [], vmed, vcell, diffh2o2, vh2o2other, vh2o2prod, gsh_deg, NADPH);
+[T,Y] = ode15s(@rath2o2, [0 3*24], yinit, [], vmed, vcell, diffh2o2, vh2o2other, vh2o2prod, gsh_deg, NADPH);
 
 
 
@@ -66,7 +66,6 @@ xlim([8 16])
 %xlabel('Hours')
 ylabel('% hepatocyte survival')
 
-close all
 
 format long
 
@@ -97,6 +96,7 @@ vgshcyt_to_mito_mz=Vgshcyttomito(gsh_cyt_mz);
 vgshmito_to_cyt_mz=Vgshmitotocyt(gsh_mito_mz);
 vdiffh2o2mito_to_cyt_mz=diffh2o2*h2o2_mito_mz;
 vmzGSHb=vGSHout_l(gsh_cyt_mz) + vGSHout_h(gsh_cyt_mz); 
+vcat_mzcyt=Vcat(h2o2_cyt_mz);
 vgpx_mzcyt=VGPXcyt(gsh_cyt_mz,h2o2_cyt_mz);
 vgr_mzcyt=VGRcyt(gssg_cyt_mz,NADPH);
 vgpx_mzmito=VGPXmito(gsh_mito_mz,h2o2_mito_mz);
@@ -132,10 +132,10 @@ M(91)=h2o2_mito_mz;
 M(98)=vdiffh2o2mito_to_cyt_mz;
 M(99)=h2o2_cyt_mz;
 M(103)=vh2o2other;
+M(113)=vcat_mzcyt;
 
 
-
-PrintFinalValues(vcell, vmed, M);
+PrintFinalValuesRATinvitro(vcell, vmed, M);
 
 
 
@@ -158,15 +158,27 @@ fracliver=y(65)/cellnum;
 
 
 death=0.0009;
+
 h2o2=0.85*y(32)+0.15*y(21);
 
 
 limit=150;
-if h2o2<limit
-    deathrate=death*h2o2;
+
+
+if h2o2 < 1
+     deathrate=0;
+elseif ((h2o2 >= 1) & (h2o2 < limit))
+     deathrate=death*h2o2;
 else
-    deathrate=death*limit;
+     deathrate=death*limit;
 end
+
+
+%if h2o2<limit
+%    deathrate=death*h2o2;
+%else
+%    deathrate=death*limit;
+%end
 
 
 
