@@ -31,7 +31,7 @@ significantly depleted. The larger is the volume of medium compared to the volum
 takes for this effect to become significant. To use an analogy, if I am fishing in an aquarium, I will quickly deplete the number of fish; 
 if I am fishing in a lake, this effect is trivial on relevant time scales.
 
-To simulate the effects of a total halt in GSH synthesis, set ``V" in VGCLholorat.m to zero. This generates Fig. 6 in the
+To simulate the effects of a total halt in GSH synthesis, set V in VGCLholorat.m to zero. This generates Fig. 6 in the
 paper. Note that there is a typo in the text of section 3.3: where it reads ``N(24)=20,000" it should instead read ``N(0)=20,000."
 
 
